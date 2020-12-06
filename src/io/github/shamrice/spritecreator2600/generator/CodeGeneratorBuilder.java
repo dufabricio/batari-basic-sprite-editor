@@ -29,7 +29,7 @@ public class CodeGeneratorBuilder {
 
         CodeGenerator codeGenerator;
 
-        if (generateType == GenerateType.SPRITE) {
+        if (generateType == GenerateType.SPRITE || generateType == GenerateType.SPRITE_14x8) {
             codeGenerator = new SpriteCodeGenerator();
         } else {
             codeGenerator = new PlayFieldCodeGenerator();

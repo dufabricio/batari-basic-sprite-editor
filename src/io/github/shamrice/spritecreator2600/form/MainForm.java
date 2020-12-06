@@ -109,14 +109,46 @@ public class MainForm {
             }
         });
 
-        switchTypeButton.addActionListener(new ActionListener() {
+        playfieldButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 setSwitchTypeButtonText();
 
                 //swap type
-                generateType = (generateType == GenerateType.SPRITE) ? GenerateType.PLAY_FIELD : GenerateType.SPRITE;
+                generateType = GenerateType.PLAY_FIELD;
+
+                TableModel tableModel = CustomTableModelFactory.getTableModel(generateType);
+                setEditorTableWidth();
+                spriteTable.setModel(tableModel);
+
+            }
+        });
+
+        player8x8Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setSwitchTypeButtonText();
+
+                //swap type
+                generateType = GenerateType.SPRITE;
+
+                TableModel tableModel = CustomTableModelFactory.getTableModel(generateType);
+                setEditorTableWidth();
+                spriteTable.setModel(tableModel);
+
+            }
+        });
+
+        player14x8Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                setSwitchTypeButtonText();
+
+                //swap type
+                generateType = GenerateType.SPRITE_14x8;
 
                 TableModel tableModel = CustomTableModelFactory.getTableModel(generateType);
                 setEditorTableWidth();
@@ -155,7 +187,7 @@ public class MainForm {
     }
 
     private void setSwitchTypeButtonText() {
-        switchTypeButton.setText("Switch to " + generateType.getDisplayName());
+        playfieldButton.setText("Switch to " + generateType.getDisplayName());
     }
 
     private JPanel mainPanel;
@@ -165,8 +197,10 @@ public class MainForm {
     private JTextArea codeTextArea;
     private JButton resetButton;
     private JButton aboutButton;
-    private JButton switchTypeButton;
+    private JButton playfieldButton;
     private JButton loadFromDataButton;
+    private JButton player14x8Button;
+    private JButton player8x8Button;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here

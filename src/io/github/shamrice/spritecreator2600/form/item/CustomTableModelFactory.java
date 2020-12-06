@@ -17,6 +17,10 @@ public class CustomTableModelFactory {
                 rows = 8;
                 cols = 8;
                 break;
+            case SPRITE_14x8:
+                rows = 14;
+                cols = 8;
+                break;
 
             case PLAY_FIELD:
                 rows = 12;

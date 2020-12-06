@@ -42,13 +42,26 @@ class SpriteCodeGenerator implements CodeGenerator {
             }
 
             //set table values based on input string.
-            for (int y = 0; y < 8; y++) {
-                for (int x = 0; x < 8; x++) {
-                    char data = flippedInputData.charAt((y * 8) + x);
-                    if (data == '1') {
-                        destinationTable.setValueAt("X", y, x);
-                    } else {
-                        destinationTable.setValueAt("", y, x);
+            if(destinationTable.getRowCount() == 8) {
+                for (int y = 0; y < 8; y++) {
+                    for (int x = 0; x < 8; x++) {
+                        char data = flippedInputData.charAt((y * 8) + x);
+                        if (data == '1') {
+                            destinationTable.setValueAt("X", y, x);
+                        } else {
+                            destinationTable.setValueAt("", y, x);
+                        }
+                    }
+                }
+            }else if(destinationTable.getRowCount() == 14) {
+                for (int y = 0; y < 14; y++) {
+                    for (int x = 0; x < 8; x++) {
+                        char data = flippedInputData.charAt((y * 8) + x);
+                        if (data == '1') {
+                            destinationTable.setValueAt("X", y, x);
+                        } else {
+                            destinationTable.setValueAt("", y, x);
+                        }
                     }
                 }
             }
